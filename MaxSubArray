@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+int MaxSubArr(int arr[],int n)
+{
+    int res = arr[0];
+    int maxSum = arr[0];
+    
+    for(int i=1;i<n;i++)
+    {
+        maxSum = max(maxSum+arr[i],arr[i]);
+        res = max(res,maxSum);
+    }
+    return res;
+}
+int main() {
+	
+     int arr[] = {1, -2, 3, -1, 2}, n = 5;
+
+     cout<<MaxSubArr(arr, n);
+    
+}
