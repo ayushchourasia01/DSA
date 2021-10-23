@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+struct Node{
+    int data;
+    Node* next;
+    Node(int x)
+    {
+        data = x;
+        next = NULL;
+    }
+}
+Node insert(Node *head, int pos, int data)
+{
+    Node *temp= new Node(data);
+    if(pos==1)
+    {
+        temp->next = head;
+        return temp;
+    }
+    Node *cur=head;
+    for(int i=1;i<=pos-2 && cur!=NULL;i++)
+    {
+        cur = cur->next;
+    }
+    if(cur==NULL)
+    return head;
+    temp->next = cur->next;
+    cur->next = temp;
+    return head;
+}
+void printlist(Node *head){
+    Node *curr=head;
+    while(curr!=NULL){
+        cout<<curr->data<<" ";
+        curr=curr->next;
+    }cout<<endl;
+}
