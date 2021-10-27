@@ -1,0 +1,15 @@
+Node revDLL(Node *head)
+{
+    if(head==NULL || head->next=NULL)
+    return head;
+    Node *cur=head;
+    Node *prev=NULL;
+    while(cur!=NULL)
+    {
+        prev = cur->prev;
+        cur->prev = cur->next;
+        cur->next = cur->prev;
+        cur = cur->prev;
+    }
+    return prev->prev;
+}
